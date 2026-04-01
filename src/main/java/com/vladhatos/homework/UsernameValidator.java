@@ -36,7 +36,7 @@ public class UsernameValidator {
                 }
             }
 
-            // Validare finală pentru regulile rămase
+            // Validare regula 1 si 3
             if (!lungimeNume) {
                 System.out.println("Eroare: Lungimea trebuie sa fie intre 6 și 12 caractere");
             } else if (!numeCifra) {
