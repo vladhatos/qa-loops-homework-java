@@ -1,0 +1,37 @@
+CLASA: ApiTests
+initializam o variabila baseURL: Șir de caractere (String)
+
+FUNCTIE: Initializare (Ruleaza inainte de teste)
+START
+
+Încearca sa deschizi fisierul de configurare (din locatia config/) "app.yaml";
+DACA fisierul nu exista:
+Aruncă eroare: "Fisierul de configurare nu a fost gasit";
+ALTFEL:
+Citeste continutul fisierului YAML;
+Extrage valoarea baseUrl.
+Salveaza valoarea în variabila adresaBaseURL.
+SFARSIT
+
+FUNCTIE: Test_PreluarePostareDupaId
+START
+
+PREGATIRE (Arrange):
+Construieste urlComplet prin concatenarea adresaBaseURL cu "/posts/1".
+Afiseaza in consola URL-ul care urmeaza sa fie testat.
+
+EXECUTIE SI VERIFICARE (Act & Assert):
+Trimite o cerere de tip GET catre urlComplet.
+ASTEAPTA raspunsul de la server.
+VERIFICA daca codul de status al raspunsului este 200 (Succes).
+VERIFICA daca in corpul raspunsului (JSON), campul "id" este egal cu 1.
+
+FINALIZARE:
+Daca verificarile trec, afiseaza: "Test API trecut cu succes!".
+
+SFARSIT
+
+Explicatia Logicii:
+Setup: Extragem URL-ul dintr-un fișier extern (YAML) pentru a nu-l scrie direct in cod (hardcoded).
+Testul: Verificam daca un endpoint specific returneaza datele corecte. 
+Folosim modelul AAA (Arrange, Act, Assert) care este standardul în testarea software.
