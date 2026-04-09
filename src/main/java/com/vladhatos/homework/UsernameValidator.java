@@ -1,3 +1,4 @@
+package com.vladhatos.homework;
 import java.util.Scanner;
 
 public class UsernameValidator {
